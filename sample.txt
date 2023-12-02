@@ -1,0 +1,129 @@
+=================head=================
+define internal i32 @gomp_loop_ordered_static_start(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+=================unoptimized=================
+%7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store i64 %0, ptr %7, align 8
+  store i64 %1, ptr %8, align 8
+  store i64 %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = call ptr (...) @gomp_thread()
+  store ptr %14, ptr %13, align 8
+  %15 = call i64 @gomp_work_share_start(i32 noundef 1)
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %29
+
+17:                                               ; preds = %6
+  %18 = load ptr, ptr %13, align 8
+  %19 = getelementptr inbounds %struct.gomp_thread, ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds %struct.TYPE_3__, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = load i64, ptr %7, align 8
+  %23 = load i64, ptr %8, align 8
+  %24 = load i64, ptr %9, align 8
+  %25 = load i32, ptr @GFS_STATIC, align 4
+  %26 = load i64, ptr %10, align 8
+  %27 = call i32 @gomp_loop_init(ptr noundef %21, i64 noundef %22, i64 noundef %23, i64 noundef %24, i32 noundef %25, i64 noundef %26)
+  %28 = call i32 (...) @gomp_ordered_static_init()
+  br label %29
+
+29:                                               ; preds = %17, %6
+  %30 = load ptr, ptr %13, align 8
+  %31 = getelementptr inbounds %struct.gomp_thread, ptr %30, i32 0, i32 0
+  %32 = getelementptr inbounds %struct.TYPE_3__, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds %struct.TYPE_4__, ptr %33, i32 0, i32 0
+  %35 = call i32 @gomp_mutex_unlock(ptr noundef %34)
+  %36 = load ptr, ptr %11, align 8
+  %37 = load ptr, ptr %12, align 8
+  %38 = call i32 @gomp_iter_static_next(ptr noundef %36, ptr noundef %37)
+  %39 = icmp ne i32 %38, 0
+  %40 = xor i1 %39, true
+  %41 = zext i1 %40 to i32
+  ret i32 %41
+}
+=================optimized=================
+%7 = tail call ptr (...) @gomp_thread() #2
+0, i64 noundef %1, i64 noundef %2, i32 noundef %12, i64 noundef %3) #2
+  %14 = tail call i32 (...) @gomp_ordered_static_init() #2
+  br label %15
+
+15:                                               ; preds = %10, %6
+  %16 = load ptr, ptr %7, align 8, !tbaa !5
+  %17 = tail call i32 @gomp_mutex_unlock(ptr noundef %16) #2
+  %18 = tail call i32 @gomp_iter_static_next(ptr noundef %4, ptr noundef %5) #2
+  %19 = icmp eq i32 %18, 0
+  %20 = zext i1 %19 to i32
+  ret i32 %20
+}=================head=================
+define internal i32 @gomp_loop_ordered_static_start(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+=================unoptimized=================
+%7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store i64 %0, ptr %7, align 8
+  store i64 %1, ptr %8, align 8
+  store i64 %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = call ptr (...) @gomp_thread()
+  store ptr %14, ptr %13, align 8
+  %15 = call i64 @gomp_work_share_start(i32 noundef 1)
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %29
+
+17:                                               ; preds = %6
+  %18 = load ptr, ptr %13, align 8
+  %19 = getelementptr inbounds %struct.gomp_thread, ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds %struct.TYPE_3__, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = load i64, ptr %7, align 8
+  %23 = load i64, ptr %8, align 8
+  %24 = load i64, ptr %9, align 8
+  %25 = load i32, ptr @GFS_STATIC, align 4
+  %26 = load i64, ptr %10, align 8
+  %27 = call i32 @gomp_loop_init(ptr noundef %21, i64 noundef %22, i64 noundef %23, i64 noundef %24, i32 noundef %25, i64 noundef %26)
+  %28 = call i32 (...) @gomp_ordered_static_init()
+  br label %29
+
+29:                                               ; preds = %17, %6
+  %30 = load ptr, ptr %13, align 8
+  %31 = getelementptr inbounds %struct.gomp_thread, ptr %30, i32 0, i32 0
+  %32 = getelementptr inbounds %struct.TYPE_3__, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds %struct.TYPE_4__, ptr %33, i32 0, i32 0
+  %35 = call i32 @gomp_mutex_unlock(ptr noundef %34)
+  %36 = load ptr, ptr %11, align 8
+  %37 = load ptr, ptr %12, align 8
+  %38 = call i32 @gomp_iter_static_next(ptr noundef %36, ptr noundef %37)
+  %39 = icmp ne i32 %38, 0
+  %40 = xor i1 %39, true
+  %41 = zext i1 %40 to i32
+  ret i32 %41
+}
+=================optimized=================
+%7 = tail call ptr (...) @gomp_thread() #2
+0, i64 noundef %1, i64 noundef %2, i32 noundef %12, i64 noundef %3) #2
+  %14 = tail call i32 (...) @gomp_ordered_static_init() #2
+  br label %15
+
+15:                                               ; preds = %10, %6
+  %16 = load ptr, ptr %7, align 8, !tbaa !5
+  %17 = tail call i32 @gomp_mutex_unlock(ptr noundef %16) #2
+  %18 = tail call i32 @gomp_iter_static_next(ptr noundef %4, ptr noundef %5) #2
+  %19 = icmp eq i32 %18, 0
+  %20 = zext i1 %19 to i32
+  ret i32 %20
+}
