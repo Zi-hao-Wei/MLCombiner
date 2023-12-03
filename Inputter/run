@@ -1,0 +1,5 @@
+#!/bin/sh
+cd build
+make
+cd ..
+opt -disable-output -load-pass-plugin=./build/inputter/inputter.so -passes="inputter" test.ll > sample_output.txt 2>&1
