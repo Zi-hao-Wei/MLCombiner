@@ -1,3 +1,0 @@
-# Hashes of file build rules.
-4a78230fede95cca74d6305bdaf8e95d inputter/CMakeFiles/install-inputter
-947f845d7bebc733c111562c306f041d inputter/CMakeFiles/install-inputter-stripped
