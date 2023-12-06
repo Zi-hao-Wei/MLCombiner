@@ -1,8 +1,9 @@
-## Instruction
+## Setup
 if you haven't install click, run:
 ```
 sudo pip3 install Click 
 ```
+## Execution
 Once you have click installed, make sure you are in the ```/Inputter/Json2Encode``` <br>
 Run:
 ```
