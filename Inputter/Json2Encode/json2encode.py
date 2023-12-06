@@ -33,7 +33,7 @@ def run(input):
                     instruction = parsing(instruction, counter)
                     counter += 1
                     for word in tracker:
-                        instruction = instruction.replace(word, tracker[word])
+                        instruction = instruction.replace(word, "({})".format(tracker[word]))
                     print(instruction)
                     function["unopt-encode"].append(instruction)
             print("[-------Optimized Encode-------]")
@@ -45,7 +45,7 @@ def run(input):
                     instruction = parsing(instruction, counter)
                     counter += 1
                     for word in tracker:
-                        instruction = instruction.replace(word, tracker[word])
+                        instruction = instruction.replace(word, "({})".format(tracker[word]))
                     print(instruction)
                     function["opt-encode"].append(instruction)
     return data
