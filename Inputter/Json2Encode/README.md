@@ -25,11 +25,11 @@ python3 json2encode.py --i <FIX_ME_WITH_YOUR_INPUT_JSON> --o <FIX_ME_WITH_YOUR_O
 ```
 <br>
 
-See sample.json and sample.json-output.json for example.<br>
+See ```sample.json``` and ```sample.json-output.json``` for example.<br>
 <br>
 NOTE: <br>
 1. This program takes JSON file.
-2. The default output path is inputfilename-output.json if not specify.
+2. The default output path is ```input_filename-output.json``` if not specify.
 
 ## TODO:
 - [ ] How to deal with BR RET instruction
