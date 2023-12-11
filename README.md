@@ -4,7 +4,7 @@ Developer: Jia Zhu, Yidong Huang, Zihao Wei, Yutong Ai <br>
 Build upon the paper ["Learning to Combine Instructions in LLVM Compiler"](https://arxiv.org/pdf/2202.12379.pdf) by Sandya Mannarswamy and Dibyendu Das <br>
 ## Structure 
 - ```Data_gen```: contains the program that generates data.
-    - ```Datageneration.py```: generates the dataset
+    - ```Datageneration.py```: generates the dataset.
     - ```Datashowing.py```: displays the generated dataset and output to a txt file.
     - ```Raw_data_show.py```: displays the raw dataset.
     - ```BB_parser.py```: parses the function's BBs.
