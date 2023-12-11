@@ -1,7 +1,7 @@
 # ML Combiner
 EECS583 FA23 Final project <br>
 Developer: Jia Zhu, Yidong Huang, Zihao Wei, Yutong Ai <br>
-build upon the paper ["Learning to Combine Instructions in LLVM Compiler"](https://arxiv.org/pdf/2202.12379.pdf) by Sandya Mannarswamy and Dibyendu Das <br>
+Build upon the paper ["Learning to Combine Instructions in LLVM Compiler"](https://arxiv.org/pdf/2202.12379.pdf) by Sandya Mannarswamy and Dibyendu Das <br>
 ## Structure 
 - ```Data_gen```: contains the program that generates data.
     - ```Datageneration.py```: generates the dataset
