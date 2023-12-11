@@ -32,5 +32,5 @@ NOTE: <br>
 2. The default output path is ```input_filename-output.json``` if not specify.
 
 ## TODO:
-- [ ] How to deal with BR RET instruction
-- [ ] Count the Instruction per function or per document
+- [x] How to deal with BR RET instruction
+- [x] Count the Instruction per function or per document
